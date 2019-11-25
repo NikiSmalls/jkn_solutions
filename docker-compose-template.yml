@@ -1,0 +1,15 @@
+version: '3'
+services:
+  wordpress:
+    image: wordpress:5.1.1-php7.3-apache
+    ports:
+      - "80:80"
+    restart: always
+    environment:
+      WORDPRESS_DB_HOST: PLACEHOLDER_DB_HOST:PLACEHOLDER_DB_PORT
+      WORDPRESS_DB_USER: bloguser
+      WORDPRESS_DB_PASSWORD: password123
+    working_dir: /var/www/html
+    volumes:
+      - ./wp-content:/var/www/html/wp-content
+      - ./uploads.ini:/usr/local/etc/php/conf.d/uploads.ini

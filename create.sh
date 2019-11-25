@@ -26,13 +26,10 @@ while true; do
   sleep 30s
 done
 
-sed "s/PLACEHOLDER_DB/$DBHost/g" app-template.yml > app.yml
+sed "s/PLACEHOLDER_DB_HOST/$DBHost/g;s/PLACEHOLDER_DB_PORT/$DBPort/g" docker-compose-template.yml > docker-compose.yml
 
-docker -H $Ip ps -a
-docker-compose -H $Ip -f app.yml run --rm app rails db:migrate
-docker-compose -H $Ip -f app.yml run --rm app rails db:seed
-docker-compose -H $Ip -f app.yml up -d
-docker-compose -H $Ip -f app.yml ps
+# docker -H $Ip ps -a
+docker-compose -H $Ip up -d
+docker-compose -H $Ip ps
 
 # aws cloudformation delete-stack --stack-name $STACK_NAME
-

@@ -5,6 +5,12 @@
 - Krystel Manning
 - Jonathan Herbert
 
+## Requirements
+- [Docker](https://www.docker.com/)
+- [Docker Compose](https://docs.docker.com/compose/)
+- [AWS CLI](https://aws.amazon.com/cli/)
+- [JQ](https://stedolan.github.io/jq/)
+
 ## Building Docker Image
 Follow the instructions in [docker-image-builder](docker-image-builder) folder.
 

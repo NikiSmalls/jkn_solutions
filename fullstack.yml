@@ -59,13 +59,13 @@ Resources:
         - CIDRIP: 0.0.0.0/0
 Outputs:
   InstancAddress:
-    Description: EC2 Address
+    Description: The public URL of the EC2 Instance
     Value: !GetAtt AppNode.PublicDnsName
   InstanceIP:
-    Description: EC2 IP
+    Description: The public IP of the EC2 Instance
     Value: !GetAtt AppNode.PublicIp
   DBHost:
-    Description: The Host of the database
+    Description: The host of the database
     Value: !GetAtt DatabaseInstance.Endpoint.Address
   DBPort:
     Description: The port of the database

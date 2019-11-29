@@ -1,7 +1,8 @@
 version: '3'
 services:
   wordpress:
-    image: wordpress:5.1.1-php7.3-apache
+    container_name: wordpress
+    image: foohyfooh/jkn_solutions
     ports:
       - "80:80"
     restart: always

@@ -12,6 +12,8 @@
 - [Docker Compose](https://docs.docker.com/compose/)
 - [AWS CLI](https://aws.amazon.com/cli/)
 - [jq](https://stedolan.github.io/jq/)
+--sudo apt-get install jq
+
 
 ## Building Docker Image
 - Follow the instructions in [docker-image-builder](docker-image-builder) folder.

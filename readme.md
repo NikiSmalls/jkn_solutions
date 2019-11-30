@@ -5,6 +5,8 @@
 - Krystel Manning
 - Jonathan Herbert
 
+## COMP 6905 Cloud Technologies
+
 ## Requirements
 - [Docker](https://www.docker.com/)
 - [Docker Compose](https://docs.docker.com/compose/)

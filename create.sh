@@ -8,7 +8,7 @@ read -p  'DB Username         : ' DbUser  # bloguser
 read -p  'DB Password         : ' DbPass  # blogpassword
 
 aws cloudformation create-stack --stack-name $STACK_NAME  \
-  --region us-east-1
+  --region us-east-1 \
   --template-body file://$PWD/aws-stack-template.yml \
   --parameters ParameterKey=KeyName,ParameterValue=$KeyName \
     ParameterKey=DBUser,ParameterValue=$DbUser \

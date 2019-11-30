@@ -2,7 +2,17 @@
 # set -euo pipefail
 
 STACK_NAME=group3-stack
-aws cloudformation create-stack --stack-name $STACK_NAME  --template-body file://$PWD/fullstack.yml
+
+read -p  'KeyName in us-east-1: ' KeyName # 814005535
+read -p  'DB Username         : ' DbUser  # bloguser
+read -p  'DB Password         : ' DbPass  # blogpassword
+
+aws cloudformation create-stack --stack-name $STACK_NAME  \
+  --region us-east-1
+  --template-body file://$PWD/aws-stack-template.yml \
+  --parameters ParameterKey=KeyName,ParameterValue=$KeyName \
+    ParameterKey=DBUser,ParameterValue=$DbUser \
+    ParameterKey=DBPass,ParameterValue=$DbPass \
 
 while true; do
   StackInfo=$(aws cloudformation describe-stacks --stack-name $STACK_NAME --output json)
@@ -28,7 +38,8 @@ while true; do
   sleep 30s
 done
 
-sed "s/PLACEHOLDER_DB_HOST/$DBHost/g;s/PLACEHOLDER_DB_PORT/$DBPort/g" docker-compose-template.yml > docker-compose.yml
+sed "s/PLACEHOLDER_DB_HOST/$DBHost/g;s/PLACEHOLDER_DB_PORT/$DBPort/g;s/PLACHOLDER_DB_USER/$DbUser/g;s/PLACEHOLDER_DB_PASS/$DbPass/g;" \
+  docker-compose-template.yml > docker-compose.yml
 
 # docker -H $Ip ps -a
 docker-compose -H $DockerIp up -d

@@ -9,6 +9,6 @@ services:
     restart: always
     environment:
       WORDPRESS_DB_HOST: PLACEHOLDER_DB_HOST:PLACEHOLDER_DB_PORT
-      WORDPRESS_DB_USER: bloguser
-      WORDPRESS_DB_PASSWORD: password123
+      WORDPRESS_DB_USER: PLACHOLDER_DB_USER
+      WORDPRESS_DB_PASSWORD: PLACEHOLDER_DB_PASS
     working_dir: /var/www/html
